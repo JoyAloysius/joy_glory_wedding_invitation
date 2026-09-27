@@ -188,7 +188,7 @@ export const wedding: WeddingData = {
       profession: 'Software Professional',
       parents: [
         { relation: 'Father', name: 'Mr. Arokiadoss J' },
-        { relation: 'Mother', name: 'Mrs. Sagaya Leema Rani A' },
+        { relation: 'Mother', name: 'Mrs. Leema Rani A' },
       ],
       city: 'Bangalore',
       photo: groomPhoto,
