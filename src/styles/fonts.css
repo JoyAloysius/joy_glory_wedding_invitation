@@ -1,0 +1,11 @@
+/* Self-hosted fonts (no third-party network requests, works offline for the PWA). */
+@import '@fontsource/playfair-display/latin-500.css';
+@import '@fontsource/playfair-display/latin-600.css';
+@import '@fontsource/playfair-display/latin-700.css';
+@import '@fontsource/playfair-display/latin-600-italic.css';
+@import '@fontsource/cormorant-garamond/latin-400.css';
+@import '@fontsource/cormorant-garamond/latin-500.css';
+@import '@fontsource/cormorant-garamond/latin-600.css';
+@import '@fontsource/cormorant-garamond/latin-500-italic.css';
+@import '@fontsource/cormorant-garamond/latin-600-italic.css';
+@import '@fontsource-variable/inter/wght.css';

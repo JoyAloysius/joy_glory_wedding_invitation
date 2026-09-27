@@ -1,0 +1,7 @@
+# By default the invitation is kept out of search engines and is only meant to be
+# opened via the direct link shared with guests (see README > Privacy).
+# To allow indexing once you're ready, replace the two lines below with:
+#   User-agent: *
+#   Allow: /
+User-agent: *
+Disallow: /

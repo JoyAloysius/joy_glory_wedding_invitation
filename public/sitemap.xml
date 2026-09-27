@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  This is a single-page invitation, so there is only one URL to list. Replace the
+  placeholder below with your real deployed URL (see README > SEO). Since robots.txt
+  discourages indexing by default, this file has no effect until you also update
+  robots.txt to allow crawling.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://your-username.github.io/your-repo-name/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

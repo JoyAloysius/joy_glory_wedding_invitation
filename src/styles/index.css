@@ -1,0 +1,175 @@
+@import 'tailwindcss';
+@import './fonts.css';
+
+/*
+ * Design tokens for the Joy & Glory wedding site.
+ * Tailwind v4 uses CSS-first configuration (no tailwind.config.js needed) — every
+ * token below becomes a utility automatically, e.g. --color-maroon -> bg-maroon/text-maroon.
+ */
+@theme {
+  --color-ivory: #fbf6ee;
+  --color-ivory-dark: #f3e8d4;
+  --color-champagne: #ecd9ab;
+  --color-gold: #c9a24b;
+  --color-gold-light: #e4c878;
+  --color-blush: #f3d9d9;
+  --color-rose: #c98a96;
+  --color-maroon: #4a1420;
+  --color-maroon-light: #6b2233;
+  --color-maroon-dark: #300d16;
+  --color-ink: #2b1a1f;
+  --color-sage: #7c9070;
+
+  /* Bangalore-inspired: garden-city green, rain-washed blue */
+  --color-blr-green: #3f6b52;
+  --color-blr-green-light: #6a9b7f;
+  --color-blr-blue: #3b6e8f;
+  --color-blr-mist: #dce8e2;
+
+  /* Pondicherry-inspired: French-quarter coral, coastal warmth */
+  --color-pdy-coral: #d97a55;
+  --color-pdy-coral-light: #ecb08e;
+  --color-pdy-blush: #fbeadd;
+  --color-pdy-ivory: #fbefd9;
+
+  --font-display: 'Playfair Display', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-accent: 'Cormorant Garamond', ui-serif, Georgia, serif;
+  --font-body: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 10px 40px -12px rgba(74, 20, 32, 0.25);
+  --shadow-lift: 0 20px 60px -20px rgba(74, 20, 32, 0.35);
+
+  --ease-silk: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    /* Keep scrolling functional but hide the visible scrollbar chrome (Firefox). */
+    scrollbar-width: none;
+  }
+
+  /* Hide the visible scrollbar chrome in Chrome/Safari/Edge/Samsung Internet
+     without disabling scrolling itself. */
+  html::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
+  }
+
+  ::selection {
+    background-color: var(--color-gold-light);
+    color: var(--color-maroon-dark);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  .font-accent {
+    font-family: var(--font-accent);
+  }
+
+  /* Visually hidden but available to assistive tech; used for the skip link and
+     accessible descriptions of purely-visual sequences (e.g. the origin story). */
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .text-shadow-soft {
+    text-shadow: 0 2px 20px rgba(74, 20, 32, 0.35);
+  }
+
+  .bg-grain {
+    background-image: url('/assets/images/paper-texture.webp');
+    background-size: 900px;
+    background-repeat: repeat;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes petal-fall {
+  0% { transform: translate3d(0, -10%, 0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translate3d(6%, 115%, 0) rotate(200deg); opacity: 0; }
+}
+
+@keyframes sparkle-pulse {
+  0%, 100% { opacity: 0.25; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes rain-fall {
+  0% { transform: translateY(-20%); opacity: 0; }
+  25% { opacity: 0.5; }
+  100% { transform: translateY(140%); opacity: 0; }
+}
+
+@keyframes wave-drift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@utility animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3.5s linear infinite;
+}
+
+@utility animate-petal {
+  animation: petal-fall linear infinite;
+}
+
+@utility animate-sparkle {
+  animation: sparkle-pulse 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-shimmer,
+  .animate-petal,
+  .animate-sparkle,
+  .animate-pulse {
+    animation: none !important;
+  }
+}
