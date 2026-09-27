@@ -31,7 +31,7 @@ export function Hero({ isRevealed }: HeroProps) {
   const duoY = useTransform(scrollYProgress, [0, 1], [0, shouldReduceMotion ? 0 : 36])
   const contentOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0])
 
-  const { groom, bride } = wedding.couple
+  const { groomPhoto, bridePhoto } = wedding.hero
 
   // Explicit per-element delays (no shared parent/child variant orchestration) so the
   // cascade stays correct even under React's dev-mode double-render. Offset so this
@@ -91,7 +91,7 @@ export function Hero({ isRevealed }: HeroProps) {
             className="relative z-10 w-[47%] -mr-3"
           >
             <div className="overflow-hidden rounded-t-[4rem] rounded-b-2xl border-4 border-white shadow-lift ring-1 ring-gold/25 transition-transform duration-500 hover:scale-[1.03]">
-              <Picture image={groom.photo} sizes="(min-width: 640px) 220px, 45vw" priority />
+              <Picture image={groomPhoto} sizes="(min-width: 640px) 220px, 45vw" priority />
             </div>
           </motion.div>
 
@@ -102,7 +102,7 @@ export function Hero({ isRevealed }: HeroProps) {
             className="relative z-10 w-[47%] -ml-3"
           >
             <div className="overflow-hidden rounded-t-[4rem] rounded-b-2xl border-4 border-white shadow-lift ring-1 ring-gold/25 transition-transform duration-500 hover:scale-[1.03]">
-              <Picture image={bride.photo} sizes="(min-width: 640px) 220px, 45vw" priority />
+              <Picture image={bridePhoto} sizes="(min-width: 640px) 220px, 45vw" priority />
             </div>
           </motion.div>
 

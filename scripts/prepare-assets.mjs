@@ -155,7 +155,7 @@ async function buildOgImage() {
 async function main() {
   await ensureDirs();
 
-  const [couplePlaceholder, engagement1Placeholder, engagement2Placeholder, groomPlaceholder, bridePlaceholder] = await Promise.all([
+  const [couplePlaceholder, engagement1Placeholder, engagement2Placeholder, groomPlaceholder, bridePlaceholder, groomHeroPlaceholder, brideHeroPlaceholder] = await Promise.all([
     // Cropped to trim the empty background to the right of the groom so both
     // faces stay in frame when the hero renders this as a full-bleed portrait crop.
     processPhoto('couple', 'couple.jpg', { left: 28, top: 0, width: 442, height: 423 }),
@@ -163,6 +163,9 @@ async function main() {
     processPhoto('engagement-2', 'engagement-2.jpg'),
     processPhoto('groom-portrait', 'groom.jpg'),
     processPhoto('bride-portrait', 'bride.jpg'),
+    // Hero-section-only photos, separate from the CoupleIntro portraits above.
+    processPhoto('groom-hero', 'groom-hero.jpg'),
+    processPhoto('bride-hero', 'bride-hero.jpg'),
   ]);
 
   await Promise.all([
@@ -181,6 +184,8 @@ async function main() {
     engagement2: engagement2Placeholder,
     groomPortrait: groomPlaceholder,
     bridePortrait: bridePlaceholder,
+    groomHero: groomHeroPlaceholder,
+    brideHero: brideHeroPlaceholder,
   };
   await writeFile(
     path.join(DATA_OUT, 'image-placeholders.json'),

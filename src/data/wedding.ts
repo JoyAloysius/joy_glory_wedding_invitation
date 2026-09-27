@@ -75,6 +75,8 @@ export interface WeddingData {
     headline: string
     message: string
     subMessage: string
+    groomPhoto: ResponsiveImage
+    bridePhoto: ResponsiveImage
   }
   /** Real engagement-ceremony photographs, shown together in the Our Story section. */
   engagement: {
@@ -151,6 +153,30 @@ const bridePhoto: ResponsiveImage = {
   blurDataUrl: placeholders.bridePortrait,
 }
 
+// Hero-section-only photos, deliberately separate from groomPhoto/bridePhoto above
+// (which are shared with CoupleIntro) so the two sections can show different photos.
+const groomHeroPhoto: ResponsiveImage = {
+  jpg800: 'assets/images/groom-hero-800.jpg',
+  jpg1600: 'assets/images/groom-hero-1600.jpg',
+  webp800: 'assets/images/groom-hero-800.webp',
+  webp1600: 'assets/images/groom-hero-1600.webp',
+  width: 1600,
+  height: 2400,
+  alt: 'Joy Aloysius',
+  blurDataUrl: placeholders.groomHero,
+}
+
+const brideHeroPhoto: ResponsiveImage = {
+  jpg800: 'assets/images/bride-hero-800.jpg',
+  jpg1600: 'assets/images/bride-hero-1600.jpg',
+  webp800: 'assets/images/bride-hero-800.webp',
+  webp1600: 'assets/images/bride-hero-1600.webp',
+  width: 1600,
+  height: 2400,
+  alt: 'Glory Deoja',
+  blurDataUrl: placeholders.brideHero,
+}
+
 export const wedding: WeddingData = {
   siteTitle: 'Joy & Glory — Wedding Celebrations',
 
@@ -188,6 +214,8 @@ export const wedding: WeddingData = {
     headline: 'Joy & Glory',
     message: 'What started as a beautiful story now becomes a lifelong promise.',
     subMessage: 'We are delighted to invite you to share in the beginning of our forever.',
+    groomPhoto: groomHeroPhoto,
+    bridePhoto: brideHeroPhoto,
   },
 
   // Real engagement-ceremony photographs, shown together in the Our Story section.
